@@ -408,3 +408,38 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+// ============================================
+// CARROSSEL DE DEPOIMENTOS
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.querySelector('.testimonials-carousel');
+  
+  if (!carousel) return; // Se não existir carrossel, não executar
+
+  const slides = carousel.querySelectorAll('.carousel-slide');
+  const prevBtn = carousel.querySelector('.carousel-btn-prev');
+  const nextBtn = carousel.querySelector('.carousel-btn-next');
+  const dots = carousel.querySelectorAll('.carousel-dot');
+  
+  let currentSlide = 0;
+  let autoPlayInterval;
+  const autoPlayDelay = 5000; // 5 segundos
+
+  // Função para mostrar um slide específico
+  function showSlide(index) {
+    // Remove classe active de todos os slides e dots
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    // Adiciona classe active ao slide e dot correto
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+
+    currentSlide = index;
+  }
+
+  // Função para ir para o próximo slide
+  function nextSlide() {
+    let next = currentSlide +
+
