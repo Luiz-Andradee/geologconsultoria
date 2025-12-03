@@ -1715,24 +1715,34 @@ footer {
   flex: 1;
 }
 
-/* Aspas discretas e elegantes */
+/* Remove as aspas do texto */
 .quote-open,
 .quote-close {
-  font-size: 1.5rem;
+  display: none;
+}
+
+/* Adiciona ícone de aspas como decoração */
+.testimonial-quote {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  font-style: italic;
+  position: relative;
+  flex: 1;
+  padding-left: 2.5rem;
+}
+
+.testimonial-quote::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -0.25rem;
+  font-size: 4rem;
   line-height: 1;
   color: var(--color-accent);
   font-family: Georgia, serif;
-  font-weight: normal;
-  display: inline;
-  opacity: 0.6;
-}
-
-.quote-open {
-  margin-right: 0.15rem;
-}
-
-.quote-close {
-  margin-left: 0.15rem;
+  font-weight: bold;
+  opacity: 0.2;
 }
 
 /* Autor do depoimento */
