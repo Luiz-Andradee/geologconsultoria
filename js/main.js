@@ -415,7 +415,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener('DOMContentLoaded', function() {
   const carousel = document.querySelector('.testimonials-carousel');
   
-  if (!carousel) return; // Se não existir carrossel, não executar
+  if (!carousel) return;
 
   const slides = carousel.querySelectorAll('.carousel-slide');
   const prevBtn = carousel.querySelector('.carousel-btn-prev');
@@ -428,11 +428,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Função para mostrar um slide específico
   function showSlide(index) {
-    // Remove classe active de todos os slides e dots
     slides.forEach(slide => slide.classList.remove('active'));
     dots.forEach(dot => dot.classList.remove('active'));
 
-    // Adiciona classe active ao slide e dot correto
     slides[index].classList.add('active');
     dots[index].classList.add('active');
 
@@ -441,5 +439,63 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Função para ir para o próximo slide
   function nextSlide() {
-    let next = currentSlide +
+    let next = currentSlide + 1;
+    if (next >= slides.length) {
+      next = 0;
+    }
+    showSlide(next);
+  }
+
+  // Função para ir para o slide anterior
+  function prevSlide() {
+    let prev = currentSlide - 1;
+    if (prev < 0) {
+      prev = slides.length - 1;
+    }
+    showSlide(prev);
+  }
+
+  // Auto-play
+  function startAutoPlay() {
+    autoPlayInterval = setInterval(nextSlide, autoPlayDelay);
+  }
+
+  function stopAutoPlay() {
+    clearInterval(autoPlayInterval);
+  }
+
+  // Event listeners para os botões
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      stopAutoPlay();
+      startAutoPlay();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      stopAutoPlay();
+      startAutoPlay();
+    });
+  }
+
+  // Event listeners para os dots
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      showSlide(index);
+      stopAutoPlay();
+      startAutoPlay();
+    });
+  });
+
+  // Pausar auto-play ao passar o mouse
+  carousel.addEventListener('mouseenter', stopAutoPlay);
+  carousel.addEventListener('mouseleave', startAutoPlay);
+
+  // Iniciar auto-play
+  startAutoPlay();
+});
+
 
