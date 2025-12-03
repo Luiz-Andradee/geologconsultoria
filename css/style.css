@@ -1715,24 +1715,24 @@ footer {
   flex: 1;
 }
 
-/* Aspas estilizadas */
+/* Aspas discretas e elegantes */
 .quote-open,
 .quote-close {
-  font-size: 3rem;
-  line-height: 0.5;
+  font-size: 1.5rem;
+  line-height: 1;
   color: var(--color-accent);
   font-family: Georgia, serif;
-  font-weight: bold;
-  display: inline-block;
-  vertical-align: middle;
+  font-weight: normal;
+  display: inline;
+  opacity: 0.6;
 }
 
 .quote-open {
-  margin-right: 0.25rem;
+  margin-right: 0.15rem;
 }
 
 .quote-close {
-  margin-left: 0.25rem;
+  margin-left: 0.15rem;
 }
 
 /* Autor do depoimento */
