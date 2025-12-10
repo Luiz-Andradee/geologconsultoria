@@ -1,524 +1,249 @@
-// ---------------- Google Analytics ----------------
-// Substituir GA_MEASUREMENT_ID pelo ID real
-window.dataLayer = window.dataLayer || [];
-function gtag() {
-  window.dataLayer.push(arguments);
-}
-gtag("js", new Date());
-gtag("config", "GA_MEASUREMENT_ID");
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const nextButton = document.querySelector('.carousel-button--right');
+  const prevButton = document.querySelector('.carousel-button--left');
+  const dotsNav = document.querySelector('.carousel-nav');
+  const dots = Array.from(dotsNav.children);
 
-// ---------------- Scripts de Interação ----------------
-document.addEventListener("DOMContentLoaded", function () {
-  const body = document.body;
-  const navMobile = document.getElementById("nav-mobile");
-  const menuToggleBtn = document.querySelector(".menu-toggle");
-  const heroFadeItems = document.querySelectorAll(".fade-in-up");
-  const yearSpan = document.getElementById("current-year");
-  const tipoContato = document.getElementById("tipo-contato");
-  const blocoOrcamento = document.querySelector(".orcamento-extra");
-  const form = document.getElementById("contato-form");
-  const modal = document.getElementById("success-modal");
-  const closeModalButton = document.getElementById("close-modal");
+  const slideWidth = slides[0].getBoundingClientRect().width;
 
-  // -------- Smooth Scroll com offset para header fixo --------
-  const headerHeight = document.querySelector('header')?.offsetHeight || 80;
-  
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      
-      // Ignora links vazios ou apenas "#"
-      if (!href || href === '#') return;
-      
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-        
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
+  // Arrange the slides next to one another
+  // slides[0].style.left = slideWidth * 0 + 'px'
+  // slides[1].style.left = slideWidth * 1 + 'px' etc...
+  const setSlidePosition = (slide, index) => {
+    slide.style.left = slideWidth * index + 'px';
+  };
+  // We don't strictly need absolute positioning if using flex, 
+  // but for the transform logic let's just assume flex layout handles width 
+  // and we slide the UL track. 
+  // Actually, standard carousel usually uses transform X on the track.
+
+  // Update: Since .carousel-track is flex, we just need to move the track
+  // based on slide index * 100% or width.
+
+  const moveToSlide = (track, currentSlide, targetSlide) => {
+    // Find index of target slide
+    const targetIndex = slides.findIndex(slide => slide === targetSlide);
+
+    // Move track to that index
+    // track.style.transform = 'translateX(-' + targetSlide.style.left + ')'; 
+    // Easier approach with flexbox: translateX(-index * 100%)
+    track.style.transform = `translateX(-${targetIndex * 100}%)`;
+
+    currentSlide.classList.remove('current-slide');
+    targetSlide.classList.add('current-slide');
+  }
+
+  const updateDots = (currentDot, targetDot) => {
+    currentDot.classList.remove('current-slide');
+    targetDot.classList.add('current-slide');
+  }
+
+  // Next Button
+  nextButton.addEventListener('click', e => {
+    const currentSlide = track.querySelector('.current-slide');
+    let nextSlide = currentSlide.nextElementSibling;
+    const currentDot = dotsNav.querySelector('.current-slide');
+    let nextDot = currentDot.nextElementSibling;
+
+    // Loop back to start
+    if (!nextSlide) {
+      nextSlide = slides[0];
+      nextDot = dots[0];
+    }
+
+    moveToSlide(track, currentSlide, nextSlide);
+    updateDots(currentDot, nextDot);
   });
 
-  // -------- Indicador de seção ativa no menu --------
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
+  // Prev Button
+  prevButton.addEventListener('click', e => {
+    const currentSlide = track.querySelector('.current-slide');
+    let prevSlide = currentSlide.previousElementSibling;
+    const currentDot = dotsNav.querySelector('.current-slide');
+    let prevDot = currentDot.previousElementSibling;
 
-  function updateActiveSection() {
-    const scrollPosition = window.pageYOffset + headerHeight + 100;
-
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute('id');
-
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          }
-        });
-      }
-    });
-  }
-
-  window.addEventListener('scroll', updateActiveSection);
-  updateActiveSection(); // Executa ao carregar
-
-  // -------- Botão Voltar ao Topo --------
-  const backToTopBtn = document.createElement('button');
-  backToTopBtn.className = 'back-to-top';
-  backToTopBtn.setAttribute('aria-label', 'Voltar ao topo');
-  backToTopBtn.innerHTML = '↑';
-  document.body.appendChild(backToTopBtn);
-
-  function toggleBackToTop() {
-    if (window.pageYOffset > 500) {
-      backToTopBtn.classList.add('visible');
-    } else {
-      backToTopBtn.classList.remove('visible');
+    // Loop to end
+    if (!prevSlide) {
+      prevSlide = slides[slides.length - 1];
+      prevDot = dots[dots.length - 1];
     }
-  }
 
-  window.addEventListener('scroll', toggleBackToTop);
-  toggleBackToTop();
-
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    moveToSlide(track, currentSlide, prevSlide);
+    updateDots(currentDot, prevDot);
   });
 
-  // -------- Menu mobile com animação melhorada --------
-  if (menuToggleBtn && navMobile) {
-    menuToggleBtn.addEventListener("click", function () {
-      const isOpen = navMobile.classList.contains("open");
+  // Dots Nav
+  dotsNav.addEventListener('click', e => {
+    // what indicator was clicked on?
+    const targetDot = e.target.closest('button');
 
-      if (isOpen) {
-        navMobile.classList.remove("open");
-        body.classList.remove("menu-open");
-        menuToggleBtn.classList.remove("active");
-        menuToggleBtn.setAttribute("aria-label", "Abrir menu de navegação");
-        menuToggleBtn.setAttribute("aria-expanded", "false");
-      } else {
-        navMobile.classList.add("open");
-        body.classList.add("menu-open");
-        menuToggleBtn.classList.add("active");
-        menuToggleBtn.setAttribute("aria-label", "Fechar menu de navegação");
-        menuToggleBtn.setAttribute("aria-expanded", "true");
+    if (!targetDot) return;
+
+    const currentSlide = track.querySelector('.current-slide');
+    const currentDot = dotsNav.querySelector('.current-slide');
+    const targetIndex = dots.findIndex(dot => dot === targetDot);
+    const targetSlide = slides[targetIndex];
+
+    moveToSlide(track, currentSlide, targetSlide);
+    updateDots(currentDot, targetDot);
+  });
+
+  // Auto-loop
+  let slideInterval = setInterval(() => {
+    nextButton.click();
+  }, 5000); // 5 seconds
+
+  // Pause on hover
+  track.addEventListener('mouseenter', () => {
+    clearInterval(slideInterval);
+  });
+
+  track.addEventListener('mouseleave', () => {
+    slideInterval = setInterval(() => {
+      nextButton.click();
+    }, 5000);
+  });
+});
+
+// =======================================================================
+// CONTACT FORM HANDLING (AJAX)
+// =======================================================================
+const contactForm = document.getElementById('contact-form');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent default page reload
+
+    const submitBtn = contactForm.querySelector('.form-submit-btn');
+    const originalBtnText = submitBtn.innerText;
+
+    // Change button state to indicate loading
+    submitBtn.innerText = 'ENVIANDO...';
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.7';
+
+    // Collect form data
+    const formData = new FormData(contactForm);
+
+    // Send to FormSubmit via AJAX
+    fetch(contactForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
       }
-    });
-
-    // Fechar menu mobile ao clicar em qualquer link
-    navMobile.addEventListener("click", function (event) {
-      if (event.target.tagName.toLowerCase() === "a") {
-        navMobile.classList.remove("open");
-        body.classList.remove("menu-open");
-        menuToggleBtn.classList.remove("active");
-        menuToggleBtn.setAttribute("aria-label", "Abrir menu de navegação");
-        menuToggleBtn.setAttribute("aria-expanded", "false");
-      }
-    });
-
-    // Fechar ao clicar fora
-    document.addEventListener('click', function(event) {
-      if (navMobile.classList.contains('open') && 
-          !navMobile.contains(event.target) && 
-          !menuToggleBtn.contains(event.target)) {
-        navMobile.classList.remove("open");
-        body.classList.remove("menu-open");
-        menuToggleBtn.classList.remove("active");
-        menuToggleBtn.setAttribute("aria-label", "Abrir menu de navegação");
-        menuToggleBtn.setAttribute("aria-expanded", "false");
-      }
-    });
-  }
-
-  // -------- Animação de scroll (IntersectionObserver) --------
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.18 }
-    );
-
-    heroFadeItems.forEach((el) => observer.observe(el));
-  } else {
-    // Fallback: torna todos visíveis
-    heroFadeItems.forEach((el) => el.classList.add("is-visible"));
-  }
-
-  // -------- Ano atual no rodapé --------
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
-
-  // -------- Bloco de orçamento (campos extras) --------
-  if (tipoContato && blocoOrcamento) {
-    const toggleBlocoOrcamento = () => {
-      if (tipoContato.value === "orcamento") {
-        blocoOrcamento.classList.add("is-visible");
-        blocoOrcamento.setAttribute("aria-hidden", "false");
-      } else {
-        blocoOrcamento.classList.remove("is-visible");
-        blocoOrcamento.setAttribute("aria-hidden", "true");
-
-        // limpa os campos desse bloco quando não é orçamento
-        blocoOrcamento.querySelectorAll("input, textarea, select").forEach((el) => {
-          if (el.tagName === "SELECT") {
-            el.selectedIndex = 0;
-          } else {
-            el.value = "";
-          }
-        });
-      }
-    };
-
-    // estado inicial
-    toggleBlocoOrcamento();
-
-    tipoContato.addEventListener("change", toggleBlocoOrcamento);
-  }
-
-  // -------- Modal de sucesso --------
-  const openModal = () => {
-    if (!modal) return;
-    modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
-  };
-
-  const closeModal = () => {
-    if (!modal) return;
-    modal.classList.remove("is-open");
-    modal.setAttribute("aria-hidden", "true");
-  };
-
-  if (closeModalButton) {
-    closeModalButton.addEventListener("click", closeModal);
-  }
-
-  if (modal) {
-    // clique no backdrop
-    modal.addEventListener("click", (event) => {
-      if (event.target.dataset.closeModal === "true") {
-        closeModal();
-      }
-    });
-
-    // ESC fecha o modal
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && modal.classList.contains("is-open")) {
-        closeModal();
-      }
-    });
-  }
-
-  // -------- Validação personalizada do formulário --------
-  const formErrors = {};
-  
-  function showError(input, message) {
-    const field = input.closest('.field');
-    if (!field) return;
-    
-    // Remove erro anterior se existir
-    const existingError = field.querySelector('.field-error');
-    if (existingError) existingError.remove();
-    
-    // Adiciona classe de erro
-    input.classList.add('has-error');
-    
-    // Cria e adiciona mensagem de erro
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'field-error';
-    errorDiv.textContent = message;
-    errorDiv.setAttribute('role', 'alert');
-    field.appendChild(errorDiv);
-  }
-  
-  function clearError(input) {
-    const field = input.closest('.field');
-    if (!field) return;
-    
-    input.classList.remove('has-error');
-    const errorDiv = field.querySelector('.field-error');
-    if (errorDiv) errorDiv.remove();
-  }
-  
-  function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  }
-  
-  function validatePhone(phone) {
-    // Remove caracteres não numéricos
-    const cleaned = phone.replace(/\D/g, '');
-    // Aceita telefones com 10 ou 11 dígitos (com ou sem DDD)
-    return cleaned.length >= 10 && cleaned.length <= 11;
-  }
-  
-  function validateForm() {
-    let isValid = true;
-    
-    // Validar tipo de contato
-    const tipoContatoInput = document.getElementById('tipo-contato');
-    if (tipoContatoInput && !tipoContatoInput.value) {
-      showError(tipoContatoInput, 'Por favor, selecione o tipo de mensagem');
-      isValid = false;
-    } else if (tipoContatoInput) {
-      clearError(tipoContatoInput);
-    }
-    
-    // Validar nome
-    const nomeInput = document.getElementById('contato-nome');
-    if (nomeInput && nomeInput.value.trim().length < 3) {
-      showError(nomeInput, 'Por favor, digite seu nome completo');
-      isValid = false;
-    } else if (nomeInput) {
-      clearError(nomeInput);
-    }
-    
-    // Validar e-mail
-    const emailInput = document.getElementById('contato-email');
-    if (emailInput && !validateEmail(emailInput.value)) {
-      showError(emailInput, 'Por favor, digite um e-mail válido');
-      isValid = false;
-    } else if (emailInput) {
-      clearError(emailInput);
-    }
-    
-    // Validar telefone (se preenchido)
-    const telefoneInput = document.getElementById('contato-telefone');
-    if (telefoneInput && telefoneInput.value && !validatePhone(telefoneInput.value)) {
-      showError(telefoneInput, 'Por favor, digite um telefone válido (ex: 47999999999)');
-      isValid = false;
-    } else if (telefoneInput && telefoneInput.value) {
-      clearError(telefoneInput);
-    }
-    
-    return isValid;
-  }
-  
-  // Adicionar validação em tempo real
-  if (form) {
-    const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
-    inputs.forEach(input => {
-      input.addEventListener('blur', function() {
-        if (this.value) {
-          // Validações específicas
-          if (this.type === 'email' && !validateEmail(this.value)) {
-            showError(this, 'Por favor, digite um e-mail válido');
-          } else if (this.id === 'contato-telefone' && !validatePhone(this.value)) {
-            showError(this, 'Por favor, digite um telefone válido');
-          } else {
-            clearError(this);
-          }
-        }
-      });
-      
-      input.addEventListener('input', function() {
-        if (this.classList.contains('has-error')) {
-          clearError(this);
-        }
-      });
-    });
-  }
-
-  // -------- Envio do formulário com fetch + loading + validação --------
-  if (form) {
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-
-      // Validação personalizada
-      if (!validateForm()) {
-        return;
-      }
-
-      // validação nativa HTML5
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      // Criar e mostrar loading spinner
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalBtnText = submitBtn.textContent;
-      submitBtn.disabled = true;
-      submitBtn.classList.add('loading');
-      submitBtn.innerHTML = '<span class="spinner"></span> Enviando...';
-
-      const formData = new FormData(form);
-
-      try {
-        const response = await fetch(form.action, {
-          method: "POST",
-          body: formData,
-          headers: {
-            Accept: "application/json",
-          },
-        });
-
+    })
+      .then(response => {
         if (response.ok) {
-          // limpa formulário
-          form.reset();
+          // Success Feedback
+          alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
 
-          // garante que o bloco de orçamento volte ao estado fechado
-          if (blocoOrcamento) {
-            blocoOrcamento.classList.remove("is-visible");
-            blocoOrcamento.setAttribute("aria-hidden", "true");
-          }
+          // Clear Form
+          contactForm.reset();
 
-          // Remove loading
-          submitBtn.disabled = false;
-          submitBtn.classList.remove('loading');
-          submitBtn.textContent = originalBtnText;
-
-          // exibe modal de sucesso
-          openModal();
+          // Scroll to Top
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
         } else {
-          submitBtn.disabled = false;
-          submitBtn.classList.remove('loading');
-          submitBtn.textContent = originalBtnText;
-          
-          alert(
-            "Ocorreu um problema ao enviar a mensagem. Tente novamente em alguns instantes."
-          );
+          // Error Feedback
+          alert('Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente ou contate-nos pelo WhatsApp.');
         }
-      } catch (error) {
-        console.error("Erro ao enviar formulário:", error);
-        
+      })
+      .catch(error => {
+        console.error('Erro:', error);
+        alert('Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente.');
+      })
+      .finally(() => {
+        // Reset button state
+        submitBtn.innerText = originalBtnText;
         submitBtn.disabled = false;
-        submitBtn.classList.remove('loading');
-        submitBtn.textContent = originalBtnText;
-        
-        alert(
-          "Não foi possível enviar a mensagem agora. Verifique sua conexão e tente novamente."
-        );
+        submitBtn.style.opacity = '1';
+      });
+  });
+}
+
+// =======================================================================
+// FAQ ACCORDION
+// =======================================================================
+const faqCards = document.querySelectorAll('.faq-card');
+
+faqCards.forEach(card => {
+  const question = card.querySelector('.faq-question');
+
+  if (question) {
+    question.addEventListener('click', () => {
+      // Close other cards
+      faqCards.forEach(c => {
+        if (c !== card) c.classList.remove('active');
+      });
+
+      // Toggle current
+      card.classList.toggle('active');
+    });
+  }
+});
+
+// =======================================================================
+// VIDEO AUTO-PLAY ON SCROLL
+// =======================================================================
+const videoSection = document.querySelector('.video-section');
+const videoElement = document.getElementById('intro-video') || document.querySelector('.video-wrapper video');
+
+// WORKAROUND: Prime audio on first interaction
+document.addEventListener('click', () => {
+  if (videoElement) {
+    videoElement.muted = false;
+    // Just touching the muted property is often enough to register intent
+  }
+}, { once: true });
+
+// Prevent accidental pausing on hover (User Report)
+if (videoElement) {
+  videoElement.addEventListener('mouseenter', () => {
+    if (videoElement.paused) {
+      videoElement.play().catch(() => { });
+    }
+  });
+}
+
+if (videoSection && videoElement) {
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+
+      // IF VISIBLE: PLAY
+      if (entry.isIntersecting) {
+
+        // Ensure sound is active (retry unmuting)
+        // Note: Using a flag to avoid spamming the property if already unmuted could be better, 
+        // but explicit assignment ensures 'audio on' is the target state.
+        if (videoElement.paused) {
+          videoElement.muted = false;
+          const playPromise = videoElement.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {
+              // Fallback if blocked
+              videoElement.muted = true;
+              videoElement.play();
+            });
+          }
+        }
+
       }
-    });
-  }
-});
-// ============================================
-// CARROSSEL DE DEPOIMENTOS - VERSÃO OTIMIZADA
-// ============================================
+      // IF NOT VISIBLE: PAUSE
+      else {
+        if (!videoElement.paused) {
+          videoElement.pause();
+        }
+      }
 
-document.addEventListener('DOMContentLoaded', function() {
-  const carousel = document.querySelector('.testimonials-carousel');
-  
-  if (!carousel) return;
-  
-  const slides = carousel.querySelectorAll('.carousel-slide');
-  const prevBtn = carousel.querySelector('.carousel-btn-prev');
-  const nextBtn = carousel.querySelector('.carousel-btn-next');
-  const dots = carousel.querySelectorAll('.carousel-dot');
-  
-  if (slides.length === 0) return;
-  
-  let currentSlide = 0;
-  const autoPlayDelay = 5000;
-  let autoPlayInterval;
-  
-  // Função para mostrar slide específico
-  function showSlide(index) {
-    // Remove active de todos
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
-    
-    // Adiciona active ao slide atual
-    if (slides[index]) {
-      slides[index].classList.add('active');
-    }
-    if (dots[index]) {
-      dots[index].classList.add('active');
-    }
-    
-    currentSlide = index;
-  }
-  
-  // Próximo slide
-  function nextSlide() {
-    const next = (currentSlide + 1) % slides.length;
-    showSlide(next);
-  }
-  
-  // Slide anterior
-  function prevSlide() {
-    const prev = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(prev);
-  }
-  
-  // Auto-play
-  function startAutoPlay() {
-    stopAutoPlay();
-    autoPlayInterval = setInterval(nextSlide, autoPlayDelay);
-  }
-  
-  function stopAutoPlay() {
-    if (autoPlayInterval) {
-      clearInterval(autoPlayInterval);
-    }
-  }
-  
-  // Event Listeners
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      prevSlide();
-      stopAutoPlay();
-      setTimeout(startAutoPlay, 1000);
     });
-  }
-  
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      nextSlide();
-      stopAutoPlay();
-      setTimeout(startAutoPlay, 1000);
-    });
-  }
-  
-  // Dots navigation
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      showSlide(index);
-      stopAutoPlay();
-      setTimeout(startAutoPlay, 1000);
-    });
+  }, {
+    threshold: 0.4 // Play when 40% visible
   });
-  
-  // Pausar ao passar mouse
-  carousel.addEventListener('mouseenter', stopAutoPlay);
-  carousel.addEventListener('mouseleave', startAutoPlay);
-  
-  // Pausar ao focar (acessibilidade)
-  carousel.addEventListener('focusin', stopAutoPlay);
-  carousel.addEventListener('focusout', startAutoPlay);
-  
-  // Inicializar
-  showSlide(0);
-  startAutoPlay();
-  
-  // Suporte para teclado (acessibilidade)
-  carousel.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
-      prevSlide();
-      stopAutoPlay();
-      setTimeout(startAutoPlay, 1000);
-    } else if (e.key === 'ArrowRight') {
-      nextSlide();
-      stopAutoPlay();
-      setTimeout(startAutoPlay, 1000);
-    }
-  });
-});
 
-
+  videoObserver.observe(videoSection);
+}
