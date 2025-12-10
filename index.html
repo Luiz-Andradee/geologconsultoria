@@ -1,272 +1,409 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="light">
+<html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Favicons -->
-<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
-<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 
-<!-- Segurança básica via meta tags -->
-  <meta http-equiv="Content-Security-Policy"
-        content="
-          default-src 'self';
-          script-src 'self' 'unsafe-inline';
-          style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-          font-src 'self' https://fonts.gstatic.com;
-          img-src 'self' data:;
-          connect-src 'self' https://formsubmit.co;
-          form-action 'self' https://formsubmit.co;
-          frame-ancestors 'self';
-          base-uri 'self';
-        ">
+  <title>Geolog Consultoria | Soluções Logísticas e Perícias</title>
+  <meta name="description"
+    content="Consultoria especializada em logística, geoprocessamento e perícias judiciais. Otimização de custos e eficiência para sua operação.">
 
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
 
-  <!-- SEO Básico -->
-  <title>Geolog Consultoria | Soluções logísticas que geram resultados</title>
-  <meta name="description" content="Geolog Consultoria: soluções logísticas que geram resultados. Consultoria, treinamentos, laudos e perícias em logística com foco em performance, redução de custos e compliance.">
-  <meta name="keywords" content="Geolog Consultoria, logística, consultoria logística, perícia logística, laudos logísticos, treinamentos em logística, supply chain, Pomerode, Brasil">
-  <meta name="author" content="Geolog Consultoria">
-
-  <!-- Open Graph / Social -->
-  <meta property="og:title" content="Geolog Consultoria | Soluções logísticas que geram resultados">
-  <meta property="og:description" content="Consultoria, treinamentos, laudos e perícias em logística com foco em resultados concretos.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.geologconsultoria.com.br/">
-  <meta property="og:site_name" content="Geolog Consultoria">
-
-  <!-- URLs amigáveis -->
-  <link rel="canonical" href="https://www.geologconsultoria.com.br/">
-  <meta name="robots" content="index, follow">
-
-  <!-- Tipografia -->
+  <!-- Fonts: Outfit (Geometric San-Serif) & Playfair Display (Serif) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
 
-  <!-- Schema Markup (JSON-LD deve continuar inline) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Geolog Consultoria",
-    "url": "https://www.geologconsultoria.com.br/",
-    "logo": "https://www.geologconsultoria.com.br/logo.png",
-    "description": "Consultoria, treinamentos, laudos e perícias em logística.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Pomerode",
-      "addressRegion": "SC",
-      "addressCountry": "BR"
-    },
-    "areaServed": "Global",
-    "email": "atendimento@geologconsultoria.com.br",
-    "sameAs": [
-      "https://www.linkedin.com/company/SEU-LINKEDIN",
-      "https://wa.me/55SEUNUMERO"
-    ],
-    "serviceType": [
-      "Consultoria em Logística",
-      "Treinamentos em Logística",
-      "Laudos Técnicos em Logística",
-      "Perícia Judicial em Logística"
-    ]
-  }
-  </script>
-
-  <!-- CSS externo -->
- <link rel="stylesheet" href="css/style.css?v=2">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
 
-  <!-- Header -->
-  <header>
-    <div class="container header-inner">
-      <div class="brand" aria-label="Geolog Consultoria">
-        <div class="brand-mark">
-          <img src="img/logo-geolog.svg" alt="Geolog Consultoria - Logotipo">
-        </div>
-        <div></div>
-      </div>
+  <!-- LAYER 1: HEADER (Sticky White) -->
+  <header class="navbar">
+    <div class="container">
+      <a href="#" class="brand">
+        <!-- Logo Image -->
+        <img src="img/logo-geolog.svg" alt="Geolog Consultoria">
+      </a>
 
-      <nav class="nav" aria-label="Navegação principal">
-        <ul class="nav-list">
-          <li><a href="#sobre" class="nav-link">Sobre</a></li>
-          <li><a href="#servicos" class="nav-link">Soluções</a></li>
-          <li><a href="#experiencia" class="nav-link">Credibilidade</a></li>
-          <li><a href="#faq" class="nav-link">FAQ</a></li>
-          <li><a href="#contato" class="nav-link">Contato</a></li>
-        </ul>
+      <nav class="nav-links">
+        <a href="#sobre" class="nav-link">Sobre</a>
+        <a href="#servicos" class="nav-link">Serviços</a>
+        <a href="#depoimentos" class="nav-link">Clientes</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#blog" class="nav-link">Blog</a>
       </nav>
 
-    <div class="header-actions">
-  <button class="menu-toggle" type="button" aria-label="Abrir menu de navegação">
-    <span></span>
-  </button>
-</div>
-
-    <!-- Navegação Mobile -->
-    <div class="container nav-mobile" id="nav-mobile" aria-label="Navegação mobile">
-      <ul>
-        <li><a href="#sobre">Sobre</a></li>
-
-        <li class="nav-mobile__group-title">Soluções</li>
-        <li><a href="#servicos">Consultoria em Logística</a></li>
-        <li><a href="#servicos">Treinamentos</a></li>
-        <li><a href="#servicos">Laudos Técnicos</a></li>
-        <li><a href="#servicos">Perícias em Logística</a></li>
-
-        <li class="nav-mobile__group-title">Institucional</li>
-        <li><a href="#experiencia">Experiência &amp; Credibilidade</a></li>
-        <li><a href="#faq">Perguntas Frequentes</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
+      <a href="#orcamento" class="btn btn-primary">
+        FALE CONOSCO
+      </a>
     </div>
   </header>
 
-  <main id="main-content">
-    <!-- HERO -->
+  <main>
+    <!-- LAYER 2: HERO (Cinematic Dark + Orange) -->
     <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy fade-in-up">
-          <h1 class="hero-title">
-            Geolog Consultoria:
-            <span class="hero-highlight">soluções logísticas que geram resultados</span>
-          </h1>
-
-          <p class="hero-subtitle">
-            Estruturamos projetos de consultoria, treinamentos, laudos e perícias em logística para empresas que precisam de
-            <strong>performance operacional</strong>, <strong>segurança jurídica</strong> e
-            <strong>tomada de decisão baseada em dados</strong>.
-          </p>
-
-          <div class="hero-cta">
-            <a href="#contato" class="btn btn-primary">
-              Falar com um especialista
-            </a>
-          </div>
-
-          <div class="hero-meta">
-            <div>
-              <strong>+ 8 anos</strong> de experiência em gestão de operações, estoques e frotas.
-            </div>
-            <div>
-              <strong>Soluções sob medida</strong> para operações industriais, transporte de cargas e supply chain.
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual fade-in-up">
-          <div class="hero-card" aria-label="Ilustração conceitual da atuação da Geolog Consultoria">
-            <div class="hero-orbit"></div>
-
-            <div class="hero-card__header">
-              <div>
-                <div class="hero-card__title">Painel de Performance Logística</div>
-                <div class="hero-card__tag">Visão integrada de operações</div>
-              </div>
-              <div class="service-icon" aria-hidden="true">∞</div>
-            </div>
-
-            <div class="hero-card__grid" aria-hidden="true">
-              <div class="hero-card__metric">
-                <span>Redução média</span>
-                <strong>12–25%</strong>
-                <span>de custos logísticos em projetos de consultoria.</span>
-              </div>
-
-              <div class="hero-card__metric">
-                <span>Confiabilidade</span>
-                <strong>&gt; 98%</strong>
-                <span>de nível de serviço em operações redesenhadas.</span>
-              </div>
-
-              <div class="hero-card__metric">
-                <span>Prazo médio</span>
-                <strong>60–90 dias</strong>
-                <span>para implantação de melhorias estruturantes.</span>
-              </div>
-
-              <div class="hero-card__metric">
-                <span>Compliance</span>
-                <strong>100%</strong>
-                <span>aderência a normas, ANTT e requisitos legais.</span>
-              </div>
-            </div>
-
-            <div class="hero-card__meta">
-              <span>Georreferenciamento, QGIS, análise espacial e modelagem de rotas em um só lugar.</span>
-              <span>Ideal para operações complexas, multimodais e de alto risco.</span>
-            </div>
-          </div>
+      <div class="hero-bg-img"></div> <!-- Placeholder for bg image -->
+      <div class="container">
+        <span class="eyebrow"></span>
+        <h1 class="hero-title">
+          Consultoria Logística<br>
+          <span>Sob Medida</span> para sua<br>
+          Operação.
+        </h1>
+        <p>
+          Mais de 8 anos de mercado unindo inteligência geográfica, perícia técnica e gestão estratégica para
+          potencializar resultados.
+        </p>
+        <div style="display: flex; gap: 1rem;">
+          <a href="#servicos" class="btn btn-primary">Nossos Serviços</a>
+          <a href="#sobre" class="btn" style="border: 1px solid rgba(255,255,255,0.3); color: white;">Saiba Mais</a>
         </div>
       </div>
     </section>
 
-    <!-- SOBRE -->
-    <section id="sobre" class="about">
-      <div class="container">
-        <div class="grid grid-2">
-          <div class="fade-in-up">
-            <div class="section-header">
-              <div class="section-eyebrow">Sobre a Geolog</div>
-              <h2 class="section-title">Consultoria em logística com base técnica, geográfica e jurídica</h2>
-              <p class="section-subtitle">
-                A Geolog Consultoria nasce na interseção entre <strong>logística empresarial</strong>, <strong>geoprocessamento</strong> e <strong>perícia judicial</strong>. Unimos a visão estratégica da cadeia de suprimentos com a profundidade analítica de quem atua diariamente em processos judiciais complexos.
-              </p>
-            </div>
 
-            <ul class="about-list" aria-label="Diferenciais da Geolog Consultoria">
-              <li>
-                <span class="bullet">◆</span>
-                <span>Atuação técnica com foco em <strong>resultados mensuráveis</strong> e indicadores claros de performance.</span>
+
+    <!-- LAYER 4: SERVIÇOS (Standard Grid) -->
+    <section id="servicos" class="bg-light">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <span class="eyebrow">Áreas de Atuação</span>
+          <h2 class="section-title">Você precisa de consultoria em qual área?</h2>
+        </div>
+
+        <div class="service-grid">
+          <!-- Card 1 -->
+          <article class="service-card">
+            <div class="service-img-wrapper">
+              <img src="img/consultoria.jpg" alt="Consultoria Estratégica">
+            </div>
+            <div class="service-content">
+              <h3>Gestão Estratégica</h3>
+              <p>Redesenho de malha logística, otimização de rotas e redução de custos operacionais.</p>
+              <a href="#" class="service-link">Ver Mais</a>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="service-card">
+            <div class="service-img-wrapper">
+              <img src="img/pericia.jpg" alt="Perícias Judiciais">
+            </div>
+            <div class="service-content">
+              <h3>Perícias Judiciais</h3>
+              <p>Suporte técnico em litígios, laudos periciais e assistência técnica especializada.</p>
+              <a href="#" class="service-link">Ver Mais</a>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="service-card">
+            <div class="service-img-wrapper">
+              <img src="img/treinamento.jpg" alt="Treinamento Corporativo">
+            </div>
+            <div class="service-content">
+              <h3>Treinamento In-Company</h3>
+              <p>Capacitação de equipes operacionais e líderes em logística e supply chain.</p>
+              <a href="#" class="service-link">Ver Mais</a>
+            </div>
+          </article>
+
+          <!-- Card 4 (New for Grid Balance/Harpia look) -->
+          <article class="service-card">
+            <div class="service-img-wrapper">
+              <img src="img/Laudos.jpg" alt="Laudos Técnicos">
+            </div>
+            <div class="service-content">
+              <h3>Laudos & Pareceres</h3>
+              <p>Documentação técnica para tomada de decisão e fundamentação jurídica.</p>
+              <a href="#" class="service-link">Ver Mais</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYER 5: BLOG / NEWS (From Harpia Ref) -->
+    <section id="blog" class="bg-white">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <h2 class="section-title">Dicas e novidades do mundo logístico</h2>
+        </div>
+
+        <div class="news-grid">
+          <!-- Article 1: Cross-docking -->
+          <article class="news-card">
+            <a href="https://www.linkedin.com/pulse/cross-docking-estrat%C3%A9gia-log%C3%ADstica-que-est%C3%A1-cadeia-de-luiz-andrade-qfh2c"
+              target="_blank" class="news-img">
+              <img src="img/crossdocking.png" alt="Cross-docking Warehouse">
+            </a>
+            <div class="news-date">Artigo LinkedIn</div>
+            <a href="https://www.linkedin.com/pulse/cross-docking-estrat%C3%A9gia-log%C3%ADstica-que-est%C3%A1-cadeia-de-luiz-andrade-qfh2c"
+              target="_blank">
+              <h3 class="news-title">Cross-docking: Estratégia logística que agiliza a cadeia de suprimentos</h3>
+            </a>
+          </article>
+
+          <!-- Article 2: Supply Chain -->
+          <article class="news-card">
+            <a href="https://www.linkedin.com/pulse/o-que-%C3%A9-supply-chain-luiz-andrade-xri1c" target="_blank"
+              class="news-img">
+              <img src="img/supplaychain.png" alt="Supply Chain Strategy">
+            </a>
+            <div class="news-date">Artigo LinkedIn</div>
+            <a href="https://www.linkedin.com/pulse/o-que-%C3%A9-supply-chain-luiz-andrade-xri1c" target="_blank">
+              <h3 class="news-title">O que é Supply Chain? Entenda a gestão da cadeia de suprimentos</h3>
+            </a>
+          </article>
+
+          <!-- Article 3: Roteirização -->
+          <article class="news-card">
+            <a href="https://www.linkedin.com/pulse/roteiriza%C3%A7%C3%A3o-inteligente-como-pilar-da-log%C3%ADstica-moderna-luiz-andrade-lszrc"
+              target="_blank" class="news-img">
+              <img src="img/roteirizacao.png" alt="Roteirização Inteligente">
+            </a>
+            <div class="news-date">Artigo LinkedIn</div>
+            <a href="https://www.linkedin.com/pulse/roteiriza%C3%A7%C3%A3o-inteligente-como-pilar-da-log%C3%ADstica-moderna-luiz-andrade-lszrc"
+              target="_blank">
+              <h3 class="news-title">Roteirização Inteligente como pilar da logística moderna</h3>
+            </a>
+          </article>
+
+          <!-- Article 4: Cadeia Fria -->
+          <article class="news-card">
+            <a href="https://www.linkedin.com/pulse/cadeia-fria-para-alimentos-tradi%C3%A7%C3%A3o-inova%C3%A7%C3%A3o-e-futuro-luiz-andrade-skvzc"
+              target="_blank" class="news-img">
+              <img src="img/cadeiafria.png" alt="Cadeia Fria">
+            </a>
+            <div class="news-date">Artigo LinkedIn</div>
+            <a href="https://www.linkedin.com/pulse/cadeia-fria-para-alimentos-tradi%C3%A7%C3%A3o-inova%C3%A7%C3%A3o-e-futuro-luiz-andrade-skvzc"
+              target="_blank">
+              <h3 class="news-title">Cadeia Fria para Alimentos: Tradição, Inovação e Futuro</h3>
+            </a>
+          </article>
+
+          <!-- Article 5: Do Lixo para o Bolso -->
+          <article class="news-card">
+            <a href="https://www.linkedin.com/pulse/do-lixo-para-o-bolso-luiz-andrade-isj6f" target="_blank"
+              class="news-img">
+              <img src="img/dobolsoparaolixo.png" alt="Logística Reversa">
+            </a>
+            <div class="news-date">Artigo LinkedIn</div>
+            <a href="https://www.linkedin.com/pulse/do-lixo-para-o-bolso-luiz-andrade-isj6f" target="_blank">
+              <h3 class="news-title">Do lixo para o bolso: O valor da logística reversa</h3>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYER 6: EQUIPE TÉCNICA (Refined Corporate) -->
+    <section id="sobre" class="bg-light">
+      <div class="container">
+        <div style="margin-bottom: 3rem; text-align: center;">
+          <span class="eyebrow">Profissionais</span>
+          <h2 class="section-title">Equipe técnica à frente da Geolog</h2>
+          <p class="section-subtitle" style="margin: 0 auto; margin-bottom: 2rem;">
+            A Geolog é liderada por profissional com formação sólida em Logística, Geografia e Docência, além de
+            experiência em operações industriais.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <!-- Card 1: Perfil Luiz -->
+          <div class="team-card">
+            <img src="img/luiz.jpg" alt="Luiz Andrade" class="profile-img">
+
+            <div class="profile-role">FUNDADOR • PERITO EM LOGÍSTICA • CONSULTOR</div>
+            <h3 class="profile-name">Luiz Andrade</h3>
+
+            <p class="profile-bio">
+              Graduado em Logística, com MBA em Gestão Industrial, Logística e Qualidade, pós-graduações em Logística &
+              Cadeia de Suprimentos e em Docência. Atuação como Perito Judicial em Logística e consultor em projetos de
+              geoprocessamento.
+            </p>
+          </div>
+
+          <!-- Card 2: Rede de Especialistas -->
+          <div class="team-card specialist-card">
+            <div class="eyebrow" style="color: var(--brand-primary); font-size: 0.75rem; margin-bottom: 1rem;">Rede de
+              Especialistas</div>
+            <h4 class="list-header">Contadores • Engenheiros • Advogados Parceiros</h4>
+
+            <p style="margin-bottom: 2rem; color: var(--text-light); padding: 0 1rem;">
+              Atuamos com uma rede de profissionais selecionados para compor times multidisciplinares em projetos que
+              exigem profundidade técnica.
+            </p>
+
+            <ul class="specialist-list">
+              <li class="specialist-item">
+                <strong>Perícias e disputas judiciais</strong>
+                <p>Envolvendo transporte, armazenagem, custos logísticos e nível de serviço.</p>
               </li>
-              <li>
-                <span class="bullet">◆</span>
-                <span>Domínio de <strong>QGIS, georreferenciamento e análise espacial</strong> aplicados à logística urbana e rodoviária.</span>
+              <li class="specialist-item">
+                <strong>Auditorias e revisões contratuais</strong>
+                <p>Análises de contratos de frete, SLA, tabelas de custos e indicadores.</p>
               </li>
-              <li>
-                <span class="bullet">◆</span>
-                <span>Experiência prática em <strong>operações de transporte, estoques, almoxarifados e frotas</strong>.</span>
-              </li>
-              <li>
-                <span class="bullet">◆</span>
-                <span>Capacidade de <strong>tradução técnica para o jurídico</strong>, facilitando a interlocução com o Poder Judiciário.</span>
+              <li class="specialist-item">
+                <strong>Suporte técnico a escritórios de advocacia</strong>
+                <p>Pareceres, notas técnicas e análises logísticas para teses jurídicas.</p>
               </li>
             </ul>
 
-            <div class="stat-row" aria-label="Indicadores da Geolog Consultoria">
-              <div class="stat">
-                <strong>+ 8</strong> anos de atuação em logística e gestão de operações.
+            <p class="specialist-note">
+              Os especialistas são indicados caso a caso, conforme o contexto da demanda, o risco envolvido e a
+              complexidade da operação.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+    </section>
+
+    </section>
+
+    <!-- LAYER 3.2: VIDEO INSTITUCIONAL -->
+    <section id="video" class="section-padding video-section">
+      <div class="container">
+        <div class="video-grid">
+          <!-- Text Content -->
+          <div class="video-text-content">
+            <span class="eyebrow">CONHEÇA A GEOLOG</span>
+            <h2>Um verdadeiro hub de soluções para o seu negócio.</h2>
+            <p>
+              Com anos de experiência, a Geolog Consultoria oferece soluções personalizadas para ajudar empresários,
+              gestores e empreendedores nas escolhas estratégicas, de gestão e aprimoramento dos processos.
+            </p>
+            <p>
+              Combinamos geotecnologia e expertise jurídica para entregar resultados que transformam a operação
+              logística.
+            </p>
+            <a href="#contato" class="btn btn-primary" style="margin-top: 1rem;">SAIBA MAIS</a>
+          </div>
+
+          <!-- Video Content -->
+          <div class="video-decoration">
+            <div class="video-container-inner video-wrapper">
+              <video id="intro-video" controls playsinline loop preload="metadata" poster="img/logistica.jpg">
+                <source src="Geolog00.mp4" type="video/mp4">
+                Seu navegador não suporta a tag de vídeo.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYER 3.5: WHY CHOOSE US (Diferenciais) -->
+    <section id="diferenciais" class="section-padding" style="background-color: #F8FAFC;">
+      <div class="container">
+        <div class="why-grid">
+          <!-- Left Column: Content -->
+          <div class="why-content">
+            <span class="eyebrow" style="color: #D97706;">POR QUE ESCOLHER A GEOLOG</span>
+            <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">
+              Uma visão que conecta operação, território e legislação
+            </h2>
+            <p class="section-subtitle" style="text-align: left; margin-bottom: 3rem;">
+              A Geolog combina a experiência de chão de fábrica e estrada com a visão analítica de quem domina
+              geotecnologias e o ambiente jurídico. Isso permite entregar recomendações executáveis, defensáveis e
+              sustentáveis.
+            </p>
+
+            <div class="feature-list">
+              <div class="feature-item">
+                <div class="feature-number">1</div>
+                <div>
+                  <h4>Foco em resultado, não em relatório bonito</h4>
+                  <p>Todo projeto é desenhado para impactar indicadores concretos: custo por tonelada, lead time, nível
+                    de serviço, ocupação de frota e giro de estoques.</p>
+                </div>
               </div>
-              <div class="stat">
-                <strong>+20</strong> projetos entre consultorias, laudos e perícias.
+
+              <div class="feature-item">
+                <div class="feature-number">2</div>
+                <div>
+                  <h4>Uso intensivo de dados e geoprocessamento</h4>
+                  <p>QGIS, georreferenciamento e análise espacial são parte do dia a dia, permitindo modelar cenários,
+                    simular rotas e visualizar gargalos.</p>
+                </div>
               </div>
-              <div class="stat">
-                <strong>+3</strong> pós-graduações em logística, geoprocessamento e ensino.
+
+              <div class="feature-item">
+                <div class="feature-number">3</div>
+                <div>
+                  <h4>Linguagem técnica traduzida para o negócio</h4>
+                  <p>Transformamos conceitos complexos em narrativas claras para diretoria, áreas de negócio e
+                    escritórios de advocacia.</p>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-number">4</div>
+                <div>
+                  <h4>Compromisso com ética e confiabilidade</h4>
+                  <p>Atuação alinhada às normas do TJ de vários estados, CRA e códigos de ética profissional, com
+                    independência e responsabilidade técnica.</p>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="fade-in-up">
-            <div class="card">
-              <div class="card-tagline">Foco em tomada de decisão</div>
-              <div class="card-title">Como trabalhamos</div>
-              <div class="card-body">
-                <p>
-                  Cada projeto começa com um <strong>diagnóstico estruturado</strong>, combinando entrevistas, análise documental, dados operacionais e mapeamento de processos.
-                </p>
-                <p>
-                  A partir daí, construímos cenários com <strong>simulações de rotas, custos e níveis de serviço</strong>, utilizando ferramentas de geoprocessamento e modelos quantitativos.
-                </p>
-                <p>
-                  O resultado é um plano claro, com <strong>prioridades, estimativa de ganhos e riscos mapeados</strong>, que pode ser executado pela própria empresa ou com acompanhamento da Geolog.
-                </p>
+          <!-- Right Column: Card -->
+          <div class="why-card">
+            <div class="card-header">
+              <span class="eyebrow" style="margin-bottom: 0.5rem; display: block;">BADGES & CREDENCIAIS</span>
+              <h3 style="font-size: 1.5rem; color: #0F172A; margin-bottom: 1rem;">Experiência e Credibilidade</h3>
+              <p style="font-size: 0.95rem; color: #64748B; margin-bottom: 1.5rem;">
+                As credenciais da Geolog garantem que cada projeto seja conduzido com rigor técnico e responsabilidade.
+              </p>
+            </div>
+
+            <div class="badges-container">
+              <span class="badge">Cadastro Nacional de Administradores Judiciais (CNAJ)</span>
+              <span class="badge">Perito Judicial em Logística</span>
+              <span class="badge">Registro no CRA-SC</span>
+              <span class="badge">MBA em Logística & Gestão Industrial</span>
+              <span class="badge">Especialização em Geoprocessamento e Ensino</span>
+            </div>
+
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <h5>Atuação em gestão de estoques e almoxarifados</h5>
+                  <span class="timeline-date">Desde 2017</span>
+                  <p>Experiência prática em operações, inventários, políticas de reposição e controle de perdas.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <h5>Gestão de frotas e operações de transporte</h5>
+                  <p>Transporte rodoviário de cargas. Atuação com foco em manutenção, roteirização, custos e
+                    conformidade com normas da ANTT.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <h5>Perícias e laudos em logística</h5>
+                  <p>Atuação junto ao Poder Judiciário. Emissão de pareceres técnicos e laudos em disputas envolvendo
+                    contratos de logística e transporte.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -274,667 +411,438 @@
       </div>
     </section>
 
-    <!-- SERVIÇOS -->
-    <section id="servicos" class="services">
+    <!-- LAYER 7: TESTIMONIALS (Prova Social) -->
+    <section id="depoimentos" class="bg-white">
       <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Portfólio de serviços</div>
-          <h2 class="section-title">Consultoria, Treinamentos, Laudos e Perícias em logística</h2>
-          <p class="section-subtitle">
-            Uma oferta integrada de serviços para empresas que precisam alinhar <strong>estratégia, operação e segurança jurídica</strong> na logística, da doca ao cliente final.
-          </p>
-        </div>
-
-        <div class="grid grid-4">
-          <!-- Consultoria -->
-          <article class="card service-card fade-in-up">
-            <div class="service-cover">
-              <img src="img/consultoria.jpg" alt="Consultoria em Logística">
-            </div>
-            <div class="service-content">
-              <h3 class="card-title">Consultoria em Logística</h3>
-              <div class="service-meta">
-                <span>Ideal para: otimização de processos, redução de custos e KPIs.</span>
-                <span>Prazo típico: 90–180 dias.</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Treinamentos -->
-          <article class="card service-card fade-in-up">
-            <div class="service-cover">
-              <img src="img/treinamento.jpg" alt="Treinamentos e Capacitação">
-            </div>
-            <div class="service-content">
-              <h3 class="card-title">Treinamentos/Capacitação</h3>
-              <div class="service-meta">
-                <span>Ideal para: equipes de operações e liderança logística.</span>
-                <span>Prazo típico: 8h–40h por turma.</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Laudo -->
-          <article class="card service-card fade-in-up">
-            <div class="service-cover">
-              <img src="img/Laudos.jpg" alt="Laudos Técnicos em Logística">
-            </div>
-            <div class="service-content">
-              <h3 class="card-title">Laudo Técnico Logístico</h3>
-              <div class="service-meta">
-                <span>Ideal para: comprovação de fatos logísticos e auditorias técnicas.</span>
-                <span>Prazo típico: 20–45 dias.</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Perícia -->
-          <article class="card service-card fade-in-up">
-            <div class="service-cover">
-              <img src="img/pericia.jpg" alt="Perícias em Logística">
-            </div>
-            <div class="service-content">
-              <h3 class="card-title">Perícias em Logística</h3>
-              <div class="service-meta">
-                <span>Ideal para: disputas contratuais, custos, SLA e avarias.</span>
-                <span>Prazo típico: Conforme prazos judiciais.</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-     <!-- DEPOIMENTOS -->
-    <section id="depoimentos" class="testimonials">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Prova Social</div>
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <span class="eyebrow">Prova Social</span>
           <h2 class="section-title">O que nossos clientes dizem</h2>
-          <p class="section-subtitle">
+          <p class="section-subtitle" style="margin: 0 auto;">
             Depoimentos de empresas e profissionais que confiam na Geolog para resolver desafios logísticos complexos.
           </p>
         </div>
 
-        <!-- Carrossel de Depoimentos -->
-        <div class="testimonials-carousel">
-          <div class="carousel-wrapper">
-            <div class="carousel-slides">
-              
-              <!-- Slide 1 - Roberto Silva -->
-              <div class="carousel-slide active">
-                <article class="card testimonial-card fade-in-up">
-                  <div class="testimonial-quote">
-                    <span class="quote-open">"</span>A consultoria da Geolog reduziu nossos custos logísticos em 18% no primeiro ano. A abordagem técnica e baseada em dados fez toda a diferença na nossa operação.<span class="quote-close">"</span>
+        <div class="carousel-container">
+          <div class="carousel-track-container">
+            <ul class="carousel-track">
+              <!-- Slide 1 -->
+              <li class="carousel-slide current-slide">
+                <div class="testimonial-card">
+                  <div class="quote-icon">
+                    <svg width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M14.017 21L14.017 18C14.017 16.896 14.321 16.069 14.929 15.519C15.539 14.965 16.324 14.542 17.284 14.25L17.284 8.5C15.823 8.784 14.717 9.176 13.966 9.676C13.255 10.144 12.671 10.792 12.214 11.619L10.017 9.5C10.742 7.72 11.83 6.182 13.281 4.886C14.732 3.59 16.486 2.628 18.543 2L18.543 21L14.017 21ZM5.01697 21L5.01697 18C5.01697 16.896 5.32098 16.069 5.92898 15.519C6.53898 14.965 7.32398 14.542 8.28398 14.25L8.28398 8.5C6.82298 8.784 5.71698 9.176 4.96598 9.676C4.25498 10.144 3.67098 10.792 3.21398 11.619L1.01697 9.5C1.74197 7.72 2.83098 6.182 4.28198 4.886C5.73298 3.59 7.48698 2.628 9.54397 2L9.54397 21L5.01697 21Z"
+                        fill="#F05023" />
+                    </svg>
                   </div>
-                  <div class="testimonial-author">
-                    <div class="testimonial-avatar">
-                      <div style="width: 100%; height: 100%; background: var(--color-accent-soft); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--color-accent-strong);">RS</div>
+                  <p class="testimonial-text">
+                    Trabalho impecável! A perícia elaborada pela Geolog foi decisiva no processo judicial. Documentação
+                    técnica precisa e apresentação clara dos fatos.
+                  </p>
+                  <div class="client-info" style="justify-content: flex-start; border-top: none; padding-top: 0;">
+                    <div class="client-avatar">JR</div>
+                    <div>
+                      <h4 class="client-name">João Ribeiro</h4>
+                      <p class="client-role">Advogado Sênior, Ribeiro Advocacia</p>
                     </div>
-                    <div class="testimonial-info">
-                      <div class="testimonial-name">Roberto Silva</div>
-                      <div class="testimonial-role">Coordenador de Operações</div>
-                      <div class="testimonial-company">Indústria Metalúrgica SC</div>
-                    </div>
-                  </div>
-                </article>
-              </div>
-
-              <!-- Slide 2 - Ana Carvalho -->
-              <div class="carousel-slide">
-                <article class="card testimonial-card fade-in-up">
-                  <div class="testimonial-quote">
-                    <span class="quote-open">"</span>O laudo técnico elaborado pela Geolog foi fundamental para resolvermos uma disputa contratual complexa. Profissionalismo e precisão técnica excepcionais.<span class="quote-close">"</span>
-                  </div>
-                  <div class="testimonial-author">
-                    <div class="testimonial-avatar">
-                      <div style="width: 100%; height: 100%; background: var(--color-accent-soft); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--color-accent-strong);">AC</div>
-                    </div>
-                    <div class="testimonial-info">
-                      <div class="testimonial-name">Ana Carvalho</div>
-                      <div class="testimonial-role">Sócia</div>
-                      <div class="testimonial-company">Carvalho & Associados Advocacia</div>
-                    </div>
-                  </div>
-                </article>
-              </div>
-
-              <!-- Slide 3 - Marcos Pereira -->
-              <div class="carousel-slide">
-                <article class="card testimonial-card fade-in-up">
-                  <div class="testimonial-quote">
-                    <span class="quote-open">"</span>Os treinamentos em gestão de estoques transformaram nossa equipe. Conteúdo prático e aplicável, com resultados visíveis em poucas semanas.<span class="quote-close">"</span>
-                  </div>
-                  <div class="testimonial-author">
-                    <div class="testimonial-avatar">
-                      <div style="width: 100%; height: 100%; background: var(--color-accent-soft); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--color-accent-strong);">MP</div>
-                    </div>
-                    <div class="testimonial-info">
-                      <div class="testimonial-name">Marcos Pereira</div>
-                      <div class="testimonial-role">Gerente de Logística</div>
-                      <div class="testimonial-company">Distribuidora Nacional</div>
-                    </div>
-                  </div>
-                </article>
-              </div>
-
-              <!-- Slide 4 - Carla Mendes (NOVO) -->
-              <div class="carousel-slide">
-                <article class="card testimonial-card fade-in-up">
-                  <div class="testimonial-quote">
-                    <span class="quote-open">"</span>A expertise da Geolog em geoprocessamento trouxe uma nova dimensão para nossa operação. Conseguimos otimizar rotas e reduzir significativamente os custos com combustível.<span class="quote-close">"</span>
-                  </div>
-                  <div class="testimonial-author">
-                    <div class="testimonial-avatar">
-                      <div style="width: 100%; height: 100%; background: var(--color-accent-soft); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--color-accent-strong);">CM</div>
-                    </div>
-                    <div class="testimonial-info">
-                      <div class="testimonial-name">Carla Mendes</div>
-                      <div class="testimonial-role">Diretora de Supply Chain</div>
-                      <div class="testimonial-company">Grupo Logístico Regional</div>
-                    </div>
-                  </div>
-                </article>
-              </div>
-
-              <!-- Slide 5 - João Ribeiro (NOVO) -->
-              <div class="carousel-slide">
-                <article class="card testimonial-card fade-in-up">
-                  <div class="testimonial-quote">
-                    <span class="quote-open">"</span>Trabalho impecável! A perícia elaborada pela Geolog foi decisiva no processo judicial. Documentação técnica precisa e apresentação clara dos fatos.<span class="quote-close">"</span>
-                  </div>
-                  <div class="testimonial-author">
-                    <div class="testimonial-avatar">
-                      <div style="width: 100%; height: 100%; background: var(--color-accent-soft); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--color-accent-strong);">JR</div>
-                    </div>
-                    <div class="testimonial-info">
-                      <div class="testimonial-name">João Ribeiro</div>
-                      <div class="testimonial-role">Advogado Sênior</div>
-                      <div class="testimonial-company">Ribeiro Advocacia Empresarial</div>
-                    </div>
-                  </div>
-                </article>
-              </div>
-
-            </div>
-
-            <!-- Controles de Navegação -->
-            <button class="carousel-btn carousel-btn-prev" aria-label="Depoimento anterior">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="15 18 9 12 15 6"></polyline>
-              </svg>
-            </button>
-            <button class="carousel-btn carousel-btn-next" aria-label="Próximo depoimento">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </button>
-          </div>
-
-          <!-- Indicadores (Dots) -->
-          <div class="carousel-dots">
-            <button class="carousel-dot active" aria-label="Ir para depoimento 1"></button>
-            <button class="carousel-dot" aria-label="Ir para depoimento 2"></button>
-            <button class="carousel-dot" aria-label="Ir para depoimento 3"></button>
-            <button class="carousel-dot" aria-label="Ir para depoimento 4"></button>
-            <button class="carousel-dot" aria-label="Ir para depoimento 5"></button>
-          </div>
-        </div>
-
-      </div>
-    </section>
-    <!-- POR QUE ESCOLHER -->
-    <section id="por-que" class="why">
-      <div class="container">
-        <div class="grid grid-2">
-          <div class="fade-in-up">
-            <div class="section-header">
-              <div class="section-eyebrow">Por que escolher a Geolog</div>
-              <h2 class="section-title">Uma visão que conecta operação, território e legislação</h2>
-              <p class="section-subtitle">
-                A Geolog combina a experiência de chão de fábrica e estrada com a visão analítica de quem domina geotecnologias e o ambiente jurídico. Isso permite entregar recomendações <strong>executáveis, defensáveis e sustentáveis</strong>.
-              </p>
-            </div>
-
-            <ul class="why-list">
-              <li class="why-item">
-                <div class="why-icon" aria-hidden="true">1</div>
-                <div>
-                  <div class="why-title">Foco em resultado, não em relatório bonito</div>
-                  <div>
-                    Todo projeto é desenhado para impactar indicadores concretos: custo por tonelada, lead time, nível de serviço, ocupação de frota e giro de estoques.
                   </div>
                 </div>
               </li>
 
-              <li class="why-item">
-                <div class="why-icon" aria-hidden="true">2</div>
-                <div>
-                  <div class="why-title">Uso intensivo de dados e geoprocessamento</div>
-                  <div>
-                    QGIS, georreferenciamento e análise espacial são parte do dia a dia, permitindo modelar cenários, simular rotas e visualizar gargalos.
+              <!-- Slide 2 -->
+              <li class="carousel-slide">
+                <div class="testimonial-card">
+                  <div class="quote-icon">
+                    <svg width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M14.017 21L14.017 18C14.017 16.896 14.321 16.069 14.929 15.519C15.539 14.965 16.324 14.542 17.284 14.25L17.284 8.5C15.823 8.784 14.717 9.176 13.966 9.676C13.255 10.144 12.671 10.792 12.214 11.619L10.017 9.5C10.742 7.72 11.83 6.182 13.281 4.886C14.732 3.59 16.486 2.628 18.543 2L18.543 21L14.017 21ZM5.01697 21L5.01697 18C5.01697 16.896 5.32098 16.069 5.92898 15.519C6.53898 14.965 7.32398 14.542 8.28398 14.25L8.28398 8.5C6.82298 8.784 5.71698 9.176 4.96598 9.676C4.25498 10.144 3.67098 10.792 3.21398 11.619L1.01697 9.5C1.74197 7.72 2.83098 6.182 4.28198 4.886C5.73298 3.59 7.48698 2.628 9.54397 2L9.54397 21L5.01697 21Z"
+                        fill="#F05023" />
+                    </svg>
+                  </div>
+                  <p class="testimonial-text">
+                    A reestruturação da nossa malha logística trouxe uma redução de 15% nos custos operacionais já no
+                    primeiro trimestre. Profissionalismo exemplar.
+                  </p>
+                  <div class="client-info" style="justify-content: flex-start; border-top: none; padding-top: 0;">
+                    <div class="client-avatar">MS</div>
+                    <div>
+                      <h4 class="client-name">Maria Silva</h4>
+                      <p class="client-role">Diretora de Operações, LogBrasil</p>
+                    </div>
                   </div>
                 </div>
               </li>
 
-              <li class="why-item">
-                <div class="why-icon" aria-hidden="true">3</div>
-                <div>
-                  <div class="why-title">Linguagem técnica traduzida para o negócio</div>
-                  <div>
-                    Transformamos conceitos complexos em narrativas claras para diretoria, áreas de negócio e escritórios de advocacia.
+              <!-- Slide 3 -->
+              <li class="carousel-slide">
+                <div class="testimonial-card">
+                  <div class="quote-icon">
+                    <svg width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M14.017 21L14.017 18C14.017 16.896 14.321 16.069 14.929 15.519C15.539 14.965 16.324 14.542 17.284 14.25L17.284 8.5C15.823 8.784 14.717 9.176 13.966 9.676C13.255 10.144 12.671 10.792 12.214 11.619L10.017 9.5C10.742 7.72 11.83 6.182 13.281 4.886C14.732 3.59 16.486 2.628 18.543 2L18.543 21L14.017 21ZM5.01697 21L5.01697 18C5.01697 16.896 5.32098 16.069 5.92898 15.519C6.53898 14.965 7.32398 14.542 8.28398 14.25L8.28398 8.5C6.82298 8.784 5.71698 9.176 4.96598 9.676C4.25498 10.144 3.67098 10.792 3.21398 11.619L1.01697 9.5C1.74197 7.72 2.83098 6.182 4.28198 4.886C5.73298 3.59 7.48698 2.628 9.54397 2L9.54397 21L5.01697 21Z"
+                        fill="#F05023" />
+                    </svg>
+                  </div>
+                  <p class="testimonial-text">
+                    Contratamos a consultoria para revisão de contratos de frete e o resultado superou as expectativas.
+                    Análise minuciosa e estratégica.
+                  </p>
+                  <div class="client-info" style="justify-content: flex-start; border-top: none; padding-top: 0;">
+                    <div class="client-avatar">CP</div>
+                    <div>
+                      <h4 class="client-name">Carlos Pereira</h4>
+                      <p class="client-role">Gerente de Supply Chain, Indústria Têxtil</p>
+                    </div>
                   </div>
                 </div>
               </li>
 
-              <li class="why-item">
-                <div class="why-icon" aria-hidden="true">4</div>
-                <div>
-                  <div class="why-title">Compromisso com ética e confiabilidade</div>
-                  <div>
-                    Atuação alinhada às normas do TJ de vários estados, CRA e códigos de ética profissional, com independência e responsabilidade técnica.
+              <!-- Slide 4 -->
+              <li class="carousel-slide">
+                <div class="testimonial-card">
+                  <div class="quote-icon">
+                    <svg width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M14.017 21L14.017 18C14.017 16.896 14.321 16.069 14.929 15.519C15.539 14.965 16.324 14.542 17.284 14.25L17.284 8.5C15.823 8.784 14.717 9.176 13.966 9.676C13.255 10.144 12.671 10.792 12.214 11.619L10.017 9.5C10.742 7.72 11.83 6.182 13.281 4.886C14.732 3.59 16.486 2.628 18.543 2L18.543 21L14.017 21ZM5.01697 21L5.01697 18C5.01697 16.896 5.32098 16.069 5.92898 15.519C6.53898 14.965 7.32398 14.542 8.28398 14.25L8.28398 8.5C6.82298 8.784 5.71698 9.176 4.96598 9.676C4.25498 10.144 3.67098 10.792 3.21398 11.619L1.01697 9.5C1.74197 7.72 2.83098 6.182 4.28198 4.886C5.73298 3.59 7.48698 2.628 9.54397 2L9.54397 21L5.01697 21Z"
+                        fill="#F05023" />
+                    </svg>
+                  </div>
+                  <p class="testimonial-text">
+                    A visão estratégica da Geolog sobre a cadeia de suprimentos nos ajudou a abrir novos mercados no Sul
+                    do país com total segurança jurídica.
+                  </p>
+                  <div class="client-info" style="justify-content: flex-start; border-top: none; padding-top: 0;">
+                    <div class="client-avatar">FA</div>
+                    <div>
+                      <h4 class="client-name">Fernanda Alves</h4>
+                      <p class="client-role">CEO, Transportes Alves</p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Slide 5 -->
+              <li class="carousel-slide">
+                <div class="testimonial-card">
+                  <div class="quote-icon">
+                    <svg width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M14.017 21L14.017 18C14.017 16.896 14.321 16.069 14.929 15.519C15.539 14.965 16.324 14.542 17.284 14.25L17.284 8.5C15.823 8.784 14.717 9.176 13.966 9.676C13.255 10.144 12.671 10.792 12.214 11.619L10.017 9.5C10.742 7.72 11.83 6.182 13.281 4.886C14.732 3.59 16.486 2.628 18.543 2L18.543 21L14.017 21ZM5.01697 21L5.01697 18C5.01697 16.896 5.32098 16.069 5.92898 15.519C6.53898 14.965 7.32398 14.542 8.28398 14.25L8.28398 8.5C6.82298 8.784 5.71698 9.176 4.96598 9.676C4.25498 10.144 3.67098 10.792 3.21398 11.619L1.01697 9.5C1.74197 7.72 2.83098 6.182 4.28198 4.886C5.73298 3.59 7.48698 2.628 9.54397 2L9.54397 21L5.01697 21Z"
+                        fill="#F05023" />
+                    </svg>
+                  </div>
+                  <p class="testimonial-text">
+                    Excelente suporte em perícias judiciais. A clareza técnica dos laudos facilitou muito o entendimento
+                    do juiz sobre o caso.
+                  </p>
+                  <div class="client-info" style="justify-content: flex-start; border-top: none; padding-top: 0;">
+                    <div class="client-avatar">RM</div>
+                    <div>
+                      <h4 class="client-name">Ricardo Mendes</h4>
+                      <p class="client-role">Sócio, Mendes & Associados</p>
+                    </div>
                   </div>
                 </div>
               </li>
             </ul>
           </div>
 
-          <div class="fade-in-up">
-            <div class="card">
-              <div class="card-tagline">Badges &amp; Credenciais</div>
-              <h3 class="card-title">Experiência e Credibilidade</h3>
-              <div class="card-body" id="experiencia">
-                <p>As credenciais da Geolog garantem que cada projeto seja conduzido com rigor técnico e responsabilidade.</p>
+          <!-- Controls -->
+          <button class="carousel-button carousel-button--left">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+          <button class="carousel-button carousel-button--right">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
 
-                <div class="badge-row" aria-label="Credenciais profissionais">
-                  <span class="badge badge--accent">Cadastro Nacional de Administradores Judiciais (CNAJ)</span>
-                  <span class="badge">Perito Judicial em Logística</span>
-                  <span class="badge">Registro no CRA-SC</span>
-                  <span class="badge">MBA em Logística &amp; Gestão Industrial</span>
-                  <span class="badge">Especialização em Geoprocessamento e Ensino</span>
-                </div>
-
-                <div class="timeline">
-                  <div class="timeline-item">
-                    <div class="timeline-title">Atuação em gestão de estoques e almoxarifados</div>
-                    <div class="timeline-meta">Desde 2017</div>
-                    <div>Experiência prática em operações, inventários, políticas de reposição e controle de perdas.</div>
-                  </div>
-
-                  <div class="timeline-item">
-                    <div class="timeline-title">Gestão de frotas e operações de transporte</div>
-                    <div class="timeline-meta">Transporte rodoviário de cargas</div>
-                    <div>Atuação com foco em manutenção, roteirização, custos e conformidade com normas da ANTT.</div>
-                  </div>
-
-                  <div class="timeline-item">
-                    <div class="timeline-title">Perícias e laudos em logística</div>
-                    <div class="timeline-meta">Atuação junto ao Poder Judiciário</div>
-                    <div>Emissão de pareceres técnicos e laudos em disputas envolvendo contratos de logística e transporte.</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- EQUIPE -->
-    <section id="equipe" class="team">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Profissionais</div>
-          <h2 class="section-title">Equipe técnica à frente da Geolog</h2>
-          <p class="section-subtitle">
-            A Geolog é liderada por profissional com formação sólida em <strong>Logística</strong>, <strong>Geografia</strong> e <strong>Docência</strong>, além de experiência em operações industriais, transporte e perícias judiciais.
-          </p>
-        </div>
-
-        <div class="grid grid-2">
-          <article class="card team-card fade-in-up">
-            <div class="avatar">
-              <img src="img/luiz.jpg" alt="Luiz Andrade - Perito em Logística e Consultor">
-            </div>
-            <div>
-              <div class="team-role">Fundador • Perito em Logística • Consultor</div>
-              <div class="team-name">Luiz Andrade</div>
-              <div class="team-meta">
-                Graduado em Logística, com MBA em Gestão Industrial, Logística e Qualidade, pós-graduações em Logística &amp; Cadeia de Suprimentos e em Docência, além de formação em Geografia. Atuação como <strong>Perito Judicial em Logística</strong> e <strong>consultor em projetos de geoprocessamento aplicado à logística</strong>.
-              </div>
-            </div>
-          </article>
-
-          <article class="card team-card team-card--network fade-in-up">
-            <div class="team-role">Rede de Especialistas</div>
-            <h3 class="team-name">Contadores • Engenheiros • Advogados Parceiros</h3>
-            <p class="team-intro">
-              Atuamos com uma rede de profissionais selecionados para compor times
-              multidisciplinares em projetos que exigem profundidade técnica,
-              jurídica e financeira.
-            </p>
-
-            <ul class="team-network-list">
-              <li>
-                <strong>Perícias e disputas judiciais</strong><br>
-                Envolvendo transporte, armazenagem, custos logísticos e nível de serviço.
-              </li>
-              <li>
-                <strong>Auditorias e revisões contratuais</strong><br>
-                Análises de contratos de frete, SLA, tabelas de custos e indicadores.
-              </li>
-              <li>
-                <strong>Suporte técnico a escritórios de advocacia</strong><br>
-                Pareceres, notas técnicas e análises logísticas para teses jurídicas.
-              </li>
-              <li>
-                <strong>Times sob medida</strong><br>
-                Formação de equipes específicas para operações logísticas complexas.
-              </li>
-            </ul>
-
-            <p class="team-footnote">
-              Os especialistas são indicados caso a caso, conforme o contexto da demanda,
-              o risco envolvido e a complexidade da operação.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="faq">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Perguntas frequentes</div>
-          <h2 class="section-title">Dúvidas comuns sobre a atuação da Geolog</h2>
-          <p class="section-subtitle">
-            A seguir, algumas respostas objetivas para as perguntas mais recorrentes de empresas, escritórios de advocacia e gestores de logística que nos procuram.
-          </p>
-        </div>
-
-        <div class="faq-list">
-          <details class="fade-in-up">
-            <summary>
-              <span class="summary-title">A Geolog atende empresas fora de Santa Catarina ou do Brasil?</span>
-              <span class="summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <p>
-              Sim. A Geolog foi pensada para uma atuação de <strong>alcance nacional e internacional</strong>. Parte relevante dos trabalhos pode ser conduzida de forma remota (reuniões, análise de dados e documentos), com visitas presenciais programadas quando necessário.
-            </p>
-          </details>
-
-          <details class="fade-in-up">
-            <summary>
-              <span class="summary-title">Qual é o perfil de empresa ideal para contratar a Geolog?</span>
-              <span class="summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <p>
-              Atendemos especialmente <strong>indústrias</strong>, <strong>distribuidoras</strong>, <strong>operadores logísticos</strong>, <strong>transportadoras</strong> e <strong>escritórios de advocacia</strong> envolvidos com temas logísticos. O ponto comum é a necessidade de <strong>decidir com base em dados</strong>, rever processos e buscar <strong>segurança jurídica</strong>.
-            </p>
-          </details>
-
-          <details class="fade-in-up">
-            <summary>
-              <span class="summary-title">Como funciona um projeto de consultoria em logística?</span>
-              <span class="summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <p>
-              O processo costuma seguir quatro etapas: (1) <strong>diagnóstico</strong> e coleta de dados; (2) <strong>modelagem e simulação</strong> de cenários; (3) <strong>desenho de soluções</strong> (processos, rotas, políticas, KPIs); e (4) <strong>plano de implementação</strong> com priorização, prazos e estimativa de ganhos.
-            </p>
-          </details>
-
-          <details class="fade-in-up">
-            <summary>
-              <span class="summary-title">Em que situações a perícia em logística é recomendada?</span>
-              <span class="summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <p>
-              A perícia é indicada em <strong>disputas contratuais</strong>, questionamentos sobre <strong>custos de frete</strong>, <strong>nível de serviço</strong>, <strong>perdas e avarias</strong>, bem como em ações judiciais que envolvem <strong>operações de transporte e armazenagem</strong>.
-            </p>
-          </details>
-
-          <details class="fade-in-up">
-            <summary>
-              <span class="summary-title">A Geolog oferece treinamentos personalizados para a equipe?</span>
-              <span class="summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <p>
-              Sim. Estruturamos programas de <strong>capacitação sob medida</strong>, alinhados ao nível da equipe e aos desafios da operação, incluindo temas como <strong>fundamentos de logística</strong>, <strong>geoprocessamento aplicado</strong> e <strong>boas práticas em transporte</strong>.
-            </p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTATO & ORÇAMENTO -->
-    <section id="contato" class="contact">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Contato &amp; Orçamento</div>
-          <h2 class="section-title">Vamos conversar sobre os desafios logísticos da sua operação?</h2>
-          <p class="section-subtitle">
-            Preencha o formulário ou escolha um dos canais abaixo. A Geolog responde com objetividade, sempre buscando entender o contexto antes de sugerir qualquer solução.
-          </p>
-        </div>
-
-        <div class="form-grid">
-          <!-- ÚNICO FORMULÁRIO -->
-          <div class="card fade-in-up">
-            <div class="card-tagline">Contato • Projetos • Perícias</div>
-            <h3 class="card-title">Fale com a Geolog</h3>
-                        <div class="trust-badge">
-              Respondemos em até 24h úteis
-            </div>
-            <p class="card-body">
-              Use este formulário para dúvidas gerais, convites, entrevistas ou
-              para solicitar um orçamento de consultoria, treinamentos, laudos
-              e perícias em logística.
-            </p>
-
-            <form id="contato-form"
-                  method="POST"
-                  action="https://formsubmit.co/luiz.andrade@geologconsultoria.com.br"
-                  novalidate>
-
-              <!-- Configuração do serviço de envio -->
-              <input type="hidden" name="_subject" value="Mensagem do site - Geolog Consultoria">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_captcha" value="false">
-              <!-- Caso queira manter um redirect, pode apontar para uma página de obrigado.
-                   Como vamos exibir modal, o redirect não é obrigatório. -->
-              <!-- <input type="hidden" name="_next" value="https://luiz-andradee.github.io/geologconsultoria/"> -->
-
-              <!-- Honeypot antispam -->
-              <input type="text" name="_honey" style="display:none" autocomplete="off">
-
-              <div class="field">
-                <label for="tipo-contato">Tipo de mensagem <span class="required" aria-hidden="true">*</span></label>
-                <select id="tipo-contato" name="tipo_contato" required aria-required="true">
-                  <option value="">Selecione</option>
-                  <option value="contato_geral">Contato geral</option>
-                  <option value="orcamento">Solicitação de orçamento</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="contato-nome">Nome completo <span class="required" aria-hidden="true">*</span></label>
-                <input type="text" id="contato-nome" name="nome" autocomplete="name" required aria-required="true">
-              </div>
-
-              <div class="field">
-                <label for="contato-email">E-mail <span class="required" aria-hidden="true">*</span></label>
-                <input type="email" id="contato-email" name="email" autocomplete="email" required aria-required="true">
-              </div>
-
-              <div class="field">
-                <label for="contato-empresa">Empresa / Organização</label>
-                <input type="text" id="contato-empresa" name="empresa">
-              </div>
-
-              <!-- Bloco extra, só para orçamento -->
-              <div class="orcamento-extra" aria-hidden="true">
-                <div class="field">
-                  <label for="orcamento-setor">Setor de atuação</label>
-                  <input type="text" id="orcamento-setor" name="setor"
-                        placeholder="Indústria, transporte, varejo, escritório de advocacia...">
-                </div>
-
-                <div class="field">
-                  <label for="orcamento-tipo">Tipo de demanda</label>
-                  <select id="orcamento-tipo" name="tipo_demanda">
-                    <option value="">Selecione</option>
-                    <option value="consultoria">Consultoria em logística</option>
-                    <option value="treinamentos">Treinamentos</option>
-                    <option value="laudos">Laudos técnicos</option>
-                    <option value="pericias">Perícias em logística</option>
-                    <option value="outros">Outros / a definir</option>
-                  </select>
-                </div>
-
-                <div class="field">
-                  <label for="orcamento-desafio">Descreva o desafio logístico</label>
-                  <textarea id="orcamento-desafio" name="desafio" rows="4"
-                            placeholder="Contexto da operação, principais problemas, prazos e objetivos esperados."></textarea>
-                </div>
-
-                <div class="field">
-                  <label for="orcamento-prazo">Prazo desejado</label>
-                  <input type="text" id="orcamento-prazo" name="prazo"
-                        placeholder="Ex.: diagnóstico em 60 dias, laudo em 30 dias...">
-                </div>
-              </div>
-
-              <div class="field">
-                <label for="contato-assunto">Assunto</label>
-                <input type="text" id="contato-assunto" name="assunto">
-              </div>
-
-              <div class="field">
-                <label for="contato-mensagem">Mensagem</label>
-                <textarea id="contato-mensagem" name="mensagem" rows="4"></textarea>
-                <p class="form-helper">
-                  Não envie dados sensíveis. Descreva brevemente o contexto e o objetivo do contato.
-                </p>
-              </div>
-
-              <button type="submit" class="btn btn-primary">
-                Enviar mensagem
-              </button>
-            </form>
+          <!-- Dots -->
+          <div class="carousel-nav">
+            <button class="carousel-indicator current-slide"></button>
+            <button class="carousel-indicator"></button>
+            <button class="carousel-indicator"></button>
+            <button class="carousel-indicator"></button>
+            <button class="carousel-indicator"></button>
           </div>
         </div>
-
-        <!-- Blocos de informação e privacidade -->
-        <div class="grid grid-2" style="margin-top: 2.4rem;">
-          <!-- Coluna 1: Canais diretos -->
-          <div class="info-block fade-in-up">
-            <div class="info-title">Canais diretos</div>
-
-            <div class="info-line">
-              <span class="icon" aria-hidden="true">✉</span>
-              <span>
-                E-mail:
-                <a href="mailto:atendimento@geologconsultoria.com.br">
-                  atendimento@geologconsultoria.com.br
-                </a>
-              </span>
-            </div>
-
-            <div class="info-line">
-              <span class="icon" aria-hidden="true">📍</span>
-              <span>
-                Pomerode • Santa Catarina • Brasil<br>
-                Atuação com foco em logística de transportes e cadeias de suprimentos.
-              </span>
-            </div>
-
-            <div class="info-line">
-              <span class="icon" aria-hidden="true">💬</span>
-              <span>
-                WhatsApp Business:
-                <a href="https://wa.me/55SEUNUMERO" target="_blank" rel="noopener">
-                  Fale com a Geolog
-                </a>
-              </span>
-            </div>
-          </div>
-
-          <!-- Coluna 2: Privacidade e uso dos dados -->
-          <div class="info-block fade-in-up">
-            <div class="info-title">Privacidade &amp; uso dos dados</div>
-            <p class="form-helper" style="margin-top: 0.4rem;">
-              Ao enviar este formulário, você autoriza a Geolog Consultoria a utilizar os
-              dados informados exclusivamente para retorno do contato e tratativas
-              relacionadas. Não compartilhamos suas informações com terceiros para fins
-              de marketing.
-            </p>
-          </div>
-        </div>
-
-        <div class="info-block fade-in-up">
-          <div class="info-title">Redes profissionais</div>
-          <p class="form-helper">
-            A Geolog mantém presença ativa em redes profissionais para compartilhar conteúdos, artigos, cases e oportunidades de colaboração.
-          </p>
-
-          <div class="social-row">
-            <a class="social-chip" href="https://www.linkedin.com/company/geolog-consultoria" target="_blank" rel="noopener">
-              <span aria-hidden="true">In</span>
-              <span>LinkedIn</span>
-            </a>
-            <a class="social-chip" href="https://www.instagram.com" target="_blank" rel="noopener">
-              <span aria-hidden="true">◎</span>
-              <span>Instagram</span>
-            </a>
-            <a class="social-chip" href="https://www.youtube.com/" target="_blank" rel="noopener">
-              <span aria-hidden="true">▶</span>
-              <span>YouTube</span>
-            </a>
-          </div>
-        </div>
-
       </div>
     </section>
   </main>
 
-    <footer>
-    <div class="container footer-inner">
-      <div>
-        © <span id="current-year"></span> Geolog Consultoria. Todos os direitos reservados.
+  <!-- LAYER 7.5: FAQ (Perguntas Frequentes) -->
+  <section id="faq" class="section-padding faq-section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <span class="eyebrow" style="color: #D97706;">PERGUNTAS FREQUENTES</span>
+        <h2 class="section-title">Dúvidas comuns sobre a atuação da Geolog</h2>
+        <p class="section-subtitle" style="margin: 0 auto; max-width: 800px;">
+          A seguir, algumas respostas objetivas para as perguntas mais recorrentes de empresas, escritórios de advocacia
+          e gestores de logística que nos procuram.
+        </p>
       </div>
 
-      <nav class="footer-nav" aria-label="Navegação de rodapé">
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#equipe">Equipe</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contato">Contato</a>
-        <a href="politica-privacidade.html">Política de Privacidade</a>
-        <a href="termos-uso.html">Termos de Uso</a>
-      </nav>
+      <div class="faq-container">
+        <!-- Item 1 -->
+        <div class="faq-card">
+          <div class="faq-question">
+            A Geolog atende empresas fora de Santa Catarina ou do Brasil?
+            <div class="faq-icon">
+              <svg width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 1l12 12M13 1L1 13" />
+              </svg>
+            </div>
+          </div>
+          <p class="faq-answer">
+            Sim. A Geolog foi pensada para uma atuação de alcance nacional e internacional. Parte relevante dos
+            trabalhos pode ser conduzida de forma remota (reuniões, análise de dados e documentos), com visitas
+            presenciais programadas quando necessário.
+          </p>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="faq-card">
+          <div class="faq-question">
+            Qual é o perfil de empresa ideal para contratar a Geolog?
+            <div class="faq-icon">
+              <svg width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 1l12 12M13 1L1 13" />
+              </svg>
+            </div>
+          </div>
+          <p class="faq-answer">
+            Atendemos especialmente indústrias, distribuidoras, operadores logísticos, transportadoras e escritórios de
+            advocacia envolvidos com temas logísticos. O ponto comum é a necessidade de decidir com base em dados, rever
+            processos e buscar segurança jurídica.
+          </p>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="faq-card">
+          <div class="faq-question">
+            Como funciona um projeto de consultoria em logística?
+            <div class="faq-icon">
+              <svg width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 1l12 12M13 1L1 13" />
+              </svg>
+            </div>
+          </div>
+          <p class="faq-answer">
+            O processo costuma seguir quatro etapas: (1) diagnóstico e coleta de dados; (2) modelagem e simulação de
+            cenários; (3) desenho de soluções (processos, rotas, políticas, KPIs); e (4) plano de implementação com
+            priorização, prazos e estimativa de ganhos.
+          </p>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="faq-card">
+          <div class="faq-question">
+            Em que situações a perícia em logística é recomendada?
+            <div class="faq-icon">
+              <svg width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 1l12 12M13 1L1 13" />
+              </svg>
+            </div>
+          </div>
+          <p class="faq-answer">
+            A perícia é indicada em disputas contratuais, questionamentos sobre custos de frete, nível de serviço,
+            perdas e avarias, bem como em ações judiciais que envolvem operações de transporte e armazenagem.
+          </p>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="faq-card">
+          <div class="faq-question">
+            A Geolog oferece treinamentos personalizados para a equipe?
+            <div class="faq-icon">
+              <svg width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 1l12 12M13 1L1 13" />
+              </svg>
+            </div>
+          </div>
+          <p class="faq-answer">
+            Sim. Estruturamos programas de capacitação sob medida, alinhados ao nível da equipe e aos desafios da
+            operação, incluindo temas como fundamentos de logística, geoprocessamento aplicado e boas práticas em
+            transporte.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAYER 8: CONTACT FORM (Orçamento) -->
+  <section id="orcamento" class="section-padding contact-section">
+    <div class="container">
+      <!-- CTA Banner -->
+      <div class="cta-banner">
+        <div class="cta-banner-content" style="padding-left: 2rem;">
+          <h2>Fale agora com um especialista.</h2>
+          <p>Sua solução personalizada começa desde o primeiro contato.</p>
+        </div>
+        <div style="padding-right: 2rem;">
+          <a href="#" class="whatsapp-btn">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.96.537 1.872.81 2.789.811 3.197 0 5.79-2.586 5.79-5.77 0-3.18-2.59-5.77-5.789-5.77zm8.56 5.77c0 4.71-3.832 8.542-8.549 8.542-1.449 0-2.822-.361-4.041-1.006l-4.524 1.185 1.209-4.396c-.722-1.259-1.104-2.705-1.104-4.225 0-4.71 3.832-8.542 8.549-8.542 4.72 0 8.56 3.83 8.56 8.542zm-2.083 4.29c-.235-.117-1.391-.686-1.606-.763-.215-.079-.371-.118-.527.117-.157.235-.607.763-.744.92-.136.155-.272.176-.508.058-.236-.118-.996-.367-1.9-1.171-.703-.626-1.177-1.399-1.315-1.634-.137-.235-.015-.362.103-.479.106-.106.236-.275.353-.412.118-.137.157-.235.235-.392.079-.157.04-.294-.02-.411-.059-.118-.527-1.272-.723-1.741-.191-.458-.385-.396-.531-.403-.136-.007-.291-.008-.446-.008-.157 0-.411.059-.627.294-.216.235-.824.803-.824 1.958 0 1.155.842 2.269.959 2.425.118.157 1.656 2.527 4.01 3.633.56.263.997.42 1.336.528.56.179 1.07.154 1.474.093.45-.068 1.391-.568 1.587-1.116.196-.549.196-1.02.137-1.117-.058-.098-.215-.157-.451-.275z" />
+            </svg>
+            FALAR POR WHATSAPP
+          </a>
+        </div>
+      </div>
+
+      <div class="row" style="display: flex; flex-wrap: wrap; gap: 4rem;">
+        <!-- Left Text -->
+        <div class="col-lg-4" style="flex: 1; min-width: 300px;">
+          <span class="eyebrow" style="color: #D97706;">CONTATO & ORÇAMENTO</span>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">
+            Vamos conversar sobre os desafios logísticos da sua operação?
+          </h2>
+          <p class="section-subtitle" style="text-align: left; margin-bottom: 2rem;">
+            Preencha o formulário ou escolha um dos canais abaixo. A Geolog responde com objetividade, sempre buscando
+            entender o contexto antes de sugerir qualquer solução.
+          </p>
+        </div>
+
+        <!-- Right Form -->
+        <div class="col-lg-8" style="flex: 1.5; min-width: 300px;">
+          <div class="form-card">
+            <div class="form-title-block">
+              <span class="eyebrow" style="display: block; margin-bottom: 0.5rem; text-align: left;">CONTATO • PROJETOS
+                • PERÍCIAS</span>
+              <h3 style="font-size: 1.5rem; color: #0F172A;">Fale com a Geolog</h3>
+              <p style="font-size: 0.9rem; color: #64748B;">Respondemos em até 24h úteis</p>
+            </div>
+
+            <form id="contact-form" action="https://formsubmit.co/luiz.andrade@geologconsultoria.com.br" method="POST">
+              <input type="hidden" name="_subject" value="Novo contato via Site - Geolog Consultoria">
+              <input type="hidden" name="_captcha" value="false">
+
+              <div class="form-group">
+                <label class="form-label">Tipo de mensagem</label>
+                <select class="form-select">
+                  <option>Selecione</option>
+                  <option>Orçamento de Consultoria</option>
+                  <option>Dúvida Técnica</option>
+                  <option>Imprensa / Entrevista</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Nome completo *</label>
+                <input type="text" class="form-input" required placeholder="Digite seu nome">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">E-mail *</label>
+                <input type="email" class="form-input" required placeholder="Digite seu e-mail corporativo">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Empresa / Organização</label>
+                <input type="text" class="form-input" placeholder="Nome da sua empresa">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Assunto</label>
+                <input type="text" class="form-input" placeholder="Resumo da solicitação">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Mensagem</label>
+                <textarea class="form-textarea" rows="4" placeholder="Descreva brevemente o contexto"></textarea>
+              </div>
+
+              <button type="submit" class="form-submit-btn">ENVIAR MENSAGEM</button>
+
+              <p class="form-note">
+                Não envie dados sensíveis. Descreva brevemente o contexto e o objetivo do contato.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAYER 6: FOOTER (Complex 3-Layer) -->
+  <footer id="contato">
+    <!-- 2. MAIN NAVY FOOTER -->
+    <div class="footer-main">
+      <div class="container footer-grid">
+        <!-- Col 1: Contact Info -->
+        <div>
+          <h4 style="color:white; margin-bottom: 1.5rem;">Contato</h4>
+
+          <div class="footer-info-item">
+            <span>📍</span>
+            <span>Rua de Exemplo, 123 - Centro<br>Pomerode - SC</span>
+          </div>
+
+          <a href="mailto:contato@geologconsultoria.com.br" class="footer-info-item" style="text-decoration: none;">
+            <span>✉️</span>
+            <span>contato@geologconsultoria.com.br</span>
+          </a>
+        </div>
+
+        <!-- Col 2: Services -->
+        <div>
+          <h4 style="color:white; margin-bottom: 1.5rem;">Soluções</h4>
+          <ul style="display:flex; flex-direction:column; gap:0.5rem; color: #CBD5E1;">
+            <li><a href="#">Consultoria Logística</a></li>
+            <li><a href="#">Perícias Judiciais</a></li>
+            <li><a href="#">Laudos Técnicos</a></li>
+            <li><a href="#">Treinamento In-Company</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Social -->
+        <div>
+          <h4 style="color:white; margin-bottom: 1.5rem;">Siga a Geolog</h4>
+          <div class="footer-social">
+            <!-- LinkedIn -->
+            <a href="#" class="social-icon">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="#" class="social-icon">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a href="#" class="social-icon">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.641c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.737-.9 10.125-5.864 10.125-11.854z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. COPYRIGHT STRIP -->
+    <div class="footer-bottom">
+      <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+        <p>&copy; 2024 Geolog Consultoria. Todos os direitos reservados.</p>
+        <div class="legal-links">
+          <a href="politica-privacidade.html"
+            style="color: #64748B; text-decoration: none; margin-right: 1rem; font-size: 0.85rem;">Política de
+            Privacidade</a>
+          <a href="termos-uso.html" style="color: #64748B; text-decoration: none; font-size: 0.85rem;">Termos de Uso</a>
+        </div>
+      </div>
     </div>
   </footer>
-  
-  <!-- Modal de sucesso -->
-  <div id="success-modal" class="modal" aria-hidden="true">
-    <div class="modal-backdrop" data-close-modal="true"></div>
-    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="success-title">
-      <h3 id="success-title">Mensagem enviada com sucesso!</h3>
-      <p>Obrigado pelo contato. Retornaremos em breve.</p>
-      <button id="close-modal" type="button" class="btn btn-secondary">Fechar</button>
-    </div>
-  </div>
 
-  <!-- JS externo -->
+  <!-- Scripts -->
   <script src="js/main.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
