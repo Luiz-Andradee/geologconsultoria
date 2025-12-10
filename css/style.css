@@ -267,7 +267,7 @@ section {
   background-repeat: no-repeat;
   z-index: 0;
   /* Behind content but above background color */
-  opacity: 0.55;
+  opacity: 0.60;
   /* Make it very subtle as requested ("diminua") */
 }
 
