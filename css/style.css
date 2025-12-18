@@ -474,8 +474,8 @@ section {
 
 /* Profile Card Specifics */
 .profile-img {
-  width: 210px;
-  height: 210px;
+  width: 300px;
+  height: 300px;
   border-radius: 20px;
   object-fit: cover;
   margin: 0 auto 2rem;
