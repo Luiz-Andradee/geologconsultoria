@@ -37,9 +37,9 @@
   content: "🚛";
 }
 
-/* "Fale com o Logikos" Label */
+/* "Fale com o Logistikos" Label */
 .chat-launcher::before {
-  content: "Fale com o Logikos";
+  content: "Fale com o Logistikos";
   position: absolute;
   /* Re-positioned to be ABOVE the icon and Right-Aligned to prevent cut-off */
   bottom: 75px;
@@ -250,4 +250,5 @@
     bottom: 80px;
     height: 60vh;
   }
+
 }
