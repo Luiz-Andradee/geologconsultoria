@@ -23,6 +23,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chatbot.css">
 </head>
 
 <body>
@@ -855,6 +856,38 @@
 
   <!-- Scripts -->
   <script src="js/main.js"></script>
+  <!-- CHATBOT WIDGET START -->
+  <!-- Launcher Button -->
+  <div class="chat-launcher">
+    <!-- Icon provided by CSS -->
+  </div>
+
+  <!-- Chat Window -->
+  <div class="chat-window">
+    <div class="chat-header">
+      <h3>Assistente Geolog</h3>
+      <button class="close-btn">&times;</button>
+    </div>
+    <div class="chat-messages">
+      <!-- Initial Greeting -->
+      <div class="message bot">
+        Olá! Sou o assistente virtual da Geolog. Como posso ajudar você a otimizar sua logística hoje?
+      </div>
+    </div>
+    <div class="chat-input-area">
+      <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
+      <button id="chat-send-btn">
+        <!-- Send Icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <!-- CHATBOT WIDGET END -->
+
+  <!-- Chatbot JS -->
+  <script src="js/chatbot.js"></script>
 </body>
 
 </html>
