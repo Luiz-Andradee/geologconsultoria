@@ -37,11 +37,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Greeting & Social
         if (lowerInput.includes('olá') || lowerInput.includes('oi') || lowerInput.includes('bom dia') || lowerInput.includes('boa tarde') || lowerInput.includes('boa noite') || lowerInput.includes('e aí')) {
-            return "Olá! 👋 Sou o Logikos, assistente virtual da Geolog. Estou aqui para agilizar seu atendimento. Sobre o que gostaria de saber: Consultoria, Perícias, Treinamentos ou nossa Equipe?";
+            return "Olá! 👋 Sou o Logistikos, assistente virtual da Geolog. Estou aqui para agilizar seu atendimento. Sobre o que gostaria de saber: Consultoria, Perícias, Treinamentos ou nossa Equipe?";
         }
 
         if (lowerInput.includes('Qual seu nome?') || lowerInput.includes('nome') || lowerInput.includes('quem é você')) {
-            return "Me chamo Logikos, e qual o seu? Estamos à disposição. Se precisar de algo mais técnico, não hesite em chamar.";
+            return "Me chamo Logistikos, e qual o seu? Estamos à disposição. Se precisar de algo mais técnico, não hesite em chamar.";
+        }
+        
+         if (lowerInput.includes('meu nome é') || lowerInput.includes('meu') || lowerInput.includes('me chamo')) {
+            return "Ótimo, agora que sei seu nome posso lhe atender melhor, conti-me mais sobre o que você busca.";
         }
 
         if (lowerInput.includes('falar com atendente') || lowerInput.includes('atendente') || lowerInput.includes('atendimento')) {
@@ -186,3 +190,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
+
