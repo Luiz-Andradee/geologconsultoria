@@ -267,7 +267,7 @@ section {
   background-repeat: no-repeat;
   z-index: 0;
   /* Behind content but above background color */
-  opacity: 0.60;
+  opacity: 0.55;
   /* Make it very subtle as requested ("diminua") */
 }
 
@@ -318,6 +318,11 @@ section {
 /* =======================================================================
    SERVICES (Standard Grid)
    ======================================================================= */
+/* Small Hero for internal pages */
+.hero-small {
+  min-height: 50vh;
+  /* Reduced height for subpages */
+}
 
 .service-grid {
   display: grid;
@@ -474,8 +479,8 @@ section {
 
 /* Profile Card Specifics */
 .profile-img {
-  width: 300px;
-  height: 300px;
+  width: 180px;
+  height: 180px;
   border-radius: 20px;
   object-fit: cover;
   margin: 0 auto 2rem;
