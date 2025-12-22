@@ -446,6 +446,98 @@ section {
 }
 
 /* =======================================================================
+   ARTICLE PAGE TYPOGRAPHY
+   ======================================================================= */
+.article-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 260px 1rem 4rem;
+  /* Increased to ensure title clears header */
+}
+
+.article-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+.article-card {
+  background-color: var(--bg-light);
+  padding: 3rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+}
+
+.article-meta {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.article-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--brand-secondary);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.article-featured-image {
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.article-featured-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.article-body {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-main);
+}
+
+.article-body h2 {
+  font-size: 1.75rem;
+  color: var(--brand-secondary);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.article-body h3 {
+  font-size: 1.5rem;
+  color: var(--brand-secondary);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.article-body p {
+  margin-bottom: 1.5rem;
+}
+
+.article-body ul,
+.article-body ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.article-body li {
+  margin-bottom: 0.5rem;
+}
+
+.article-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #E2E8F0;
+  text-align: center;
+}
+
+/* =======================================================================
    TEAM & SPECIALISTS SECTION
    ======================================================================= */
 
@@ -1493,15 +1585,4 @@ section {
   .video-decoration::after {
     display: none;
   }
-}
-
-.video-decoration {
-  max-width: 100%;
-  /* Allow full width on mobile but keep aspect ratio */
-}
-
-.video-decoration::before,
-.video-decoration::after {
-  display: none;
-}
 }
